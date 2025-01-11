@@ -1,6 +1,7 @@
 import React from "react";
 import Map from "../../components/Map/Map";
-import { Container } from "@material-ui/core";
+import { Container } from "@mui/material";
+
 const MapPage = () => {
   return (
     <Container>

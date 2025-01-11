@@ -1,6 +1,6 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/material/styles';
 
-export const useBackgroundStyles = makeStyles((theme) => ({
+export const useBackgroundStyles = styled((theme) => ({
   background: {
     minHeight: "100vh",
     minWidth: "100vw",

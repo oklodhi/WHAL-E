@@ -24,25 +24,25 @@ const HomePage = ({ captionsEnabled, isTextToSpeech }) => {
       }
     };
 
-    fetchNASAImageOfTheDay();
+    //fetchNASAImageOfTheDay();
   }, []);
 
-  useEffect(() => {
-    window.speechSynthesis.cancel();
-    if (isTextToSpeech) {
-      const speech = new SpeechSynthesisUtterance(backgroundDescription);
-      speech.lang = "en-US";
-      speech.volume = 1;
-      speech.rate = 1;
-      speech.pitch = 1;
-      window.speechSynthesis.speak(speech);
-    } else {
-      window.speechSynthesis.cancel();
-    }
-    return () => {
-      window.speechSynthesis.cancel();
-    };
-  }, [isTextToSpeech, backgroundDescription]);
+  // useEffect(() => {
+  //   window.speechSynthesis.cancel();
+  //   if (isTextToSpeech) {
+  //     const speech = new SpeechSynthesisUtterance(backgroundDescription);
+  //     speech.lang = "en-US";
+  //     speech.volume = 1;
+  //     speech.rate = 1;
+  //     speech.pitch = 1;
+  //     window.speechSynthesis.speak(speech);
+  //   } else {
+  //     window.speechSynthesis.cancel();
+  //   }
+  //   return () => {
+  //     window.speechSynthesis.cancel();
+  //   };
+  // }, [isTextToSpeech, backgroundDescription]);
 
   return (
     <>

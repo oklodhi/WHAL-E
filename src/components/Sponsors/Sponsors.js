@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Container, Typography } from "@material-ui/core";
+import { Grid, Container, Typography } from "@mui/material";
 
 const Sponsors = ({ sponsorData }) => {
   return (

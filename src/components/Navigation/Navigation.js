@@ -6,22 +6,32 @@ import {
   ListItemIcon,
   ListItemText,
   Fab,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
-import HomeIcon from "@material-ui/icons/Home";
+} from "@mui/material";  // Changed from '@material-ui/core' to '@mui/material'
+import MenuIcon from "@mui/icons-material/Menu";  // Fixed incorrect path
+import HomeIcon from "@mui/icons-material/Home";  // Fixed incorrect path
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
 import GpsFixedOutlinedIcon from "@mui/icons-material/GpsFixedOutlined";
-import HelpIcon from '@mui/icons-material/Help';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import QuizIcon from '@mui/icons-material/Quiz';
+import HelpIcon from "@mui/icons-material/Help";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import QuizIcon from "@mui/icons-material/Quiz";
 import RocketLaunchOutlinedIcon from "@mui/icons-material/RocketLaunchOutlined";
 import { Link } from "react-router-dom";
-import { useStyles } from "./Navigation.styles.js";
+import { styled } from "@mui/material/styles";  // Use styled instead of makeStyles
 
+// Replace useStyles with styled components
+const StyledFab = styled(Fab)(({ theme }) => ({
+  borderRadius: "0",
+  position: "fixed",
+  top: "10px",
+  left: "5px",
+  backgroundColor: theme.palette.primary.main,
+  "&:hover": {
+    backgroundColor: theme.palette.secondary.main,
+  },
+}));
 
 const Navigation = ({ showFab = true }) => {
-  const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const toggleDrawer = (open) => (event) => {
@@ -81,7 +91,7 @@ const Navigation = ({ showFab = true }) => {
     >
       <List>
         {menuItems.map(({ text, icon, path }) => (
-          <ListItem button key={text} component={Link} to={path}>
+          <ListItem key={text} component={Link} to={path}>
             <ListItemIcon>{icon}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -93,13 +103,12 @@ const Navigation = ({ showFab = true }) => {
   return (
     <div>
       {showFab ? (
-        <Fab
+        <StyledFab
           aria-label="menu"
           onClick={toggleDrawer(true)}
-          className={classes.fab}
         >
           <MenuIcon />
-        </Fab>
+        </StyledFab>
       ) : (
         <MenuIcon aria-label="menu" onClick={toggleDrawer(true)} />
       )}

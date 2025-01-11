@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useBackgroundStyles } from "./Background.styles";
-import Clock from "../Clock/Clock";
-import Tooltip from "@material-ui/core/Tooltip"; // Import Tooltip
-import InfoIcon from "@material-ui/icons/Info"; // Import Info icon
+// import Clock from "../Clock/Clock";
+import Tooltip from "@mui/material/Tooltip"; // Import Tooltip
+import InfoIcon from "@mui/icons-material/Info"; // Import Info icon
 
 const Background = ({
   mediaType,
@@ -17,7 +17,7 @@ const Background = ({
   };
 
   const getYouTubeEmbedUrl = (url) => {
-    const regExp = /^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/;
+    const regExp = /^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#]*).*/;
     const match = url.match(regExp);
 
     if (match && match[2].length === 11) {
@@ -35,7 +35,7 @@ const Background = ({
           <iframe
             className={classes.videoBackground}
             src={embedUrl}
-            frameBorder="0"
+            style={{ border: 'none' }}
             allow="autoplay; fullscreen"
             allowFullScreen
             title="Video Background"
@@ -55,7 +55,7 @@ const Background = ({
   return (
     <>
       {renderBackground()}
-      <Clock />
+      {/* <Clock /> */}
       <Tooltip
         title={backgroundDescription}
         className={classes.backgroundDescription}
